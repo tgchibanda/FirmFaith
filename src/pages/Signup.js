@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, StatusBar, TouchableOpacity, TextInput, ScrollV
 import Logo from '../components/Logo';
 import {Actions} from 'react-native-router-flux';
 
+
+
 export default class Signup extends React.Component {
 		constructor(props){
 			super(props)
@@ -11,40 +13,54 @@ export default class Signup extends React.Component {
 				userContact:'',
 				userPassword:''
 			}
-	}
+    }
+		
+		
+
+    addUser(){
+        var username = this.state.userName;
+        var data = {
+            "username": username,
+            "contact": this.state.userContact,
+            "password": this.state.userPassword,
+     }
+    
+    fetch('http://www.cpstechnologies.co.za/Tests/slim/api/register', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+			body: JSON.stringify(data),
+			
+		})
+		.then((response) => response.json())
+			.then((responseData, err) => {
+				alert(
+					responseData,
+					"Response Body -> " + JSON.stringify(responseData.body)
+				);
+				if(responseData=="Registered Successfully"){
+					navigate('Home');
+				}
+			})
+			.done();
+        
+    
+    }
+
+    
 		static navigationOptions = {
 				title: 'Create Account'
   };
 	
-	signupNow =() =>{
-		
-		const userName = this.state.userName;
-		const {userContact}= this.state;
-		const {userEmail}= this.state;
-		const {userCountry}= this.state;
-		const {userPassword} = this.state;
-		fetch('http://192.168.137.1/takunda/android/slim/api/register', {
-			method: 'post',
-			header:{
-				'Accept': 'application/json',
-				'Content-type': 'application/json',
-			},
-			body:JSON.stringify({
-				name:this.state.userName,
-				contact:userContact,
-				userPassword:this.state.userPassword,
-			})
-		})
-		.then((response)=> response.json())
-		.then((responseJson)=>{
-			alert(responseJson);
-		})
-		.catch((error)=>{
-			console.error(error);
-		});
-	}
+	
   render() {
-	  
+      
+    
+    
+
+
 	  const { navigate } = this.props.navigation;
 	  
 	  
@@ -83,7 +99,7 @@ export default class Signup extends React.Component {
 		selectionColor="#fff"
 		/>
 		
-		<TouchableOpacity style={styles.btn} onPress={this.signupNow} ><Text style={styles.btnText}>Signup</Text></TouchableOpacity >
+		<TouchableOpacity style={styles.btn} onPress={() => this.addUser()} ><Text style={styles.btnText}>Signup</Text></TouchableOpacity >
       </View>
 		<View style={styles.signupTextCont}>
 			<Text style={styles.signupText}>Already have an account yet?</Text>

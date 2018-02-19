@@ -8,7 +8,6 @@ StyleSheet,
  ScrollView,
 Dimensions } from 'react-native';
 import Members from './Members';
-import Albums from './Albums';
 export default class Main extends React.Component {
 	
 	
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
 	flex:1,
   },
   header: {
-	backgroundColor: "green",
+	backgroundColor: "#15514f",
 	alignItems:'center',
 	width: Dimensions.get('window').width,
   },

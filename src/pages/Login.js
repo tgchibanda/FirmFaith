@@ -6,6 +6,10 @@ import { StackNavigator } from 'react-navigation';
 export default class Login extends React.Component {
 	constructor(props){
 		super(props);
+		this.state={
+			userName:'',
+			userPassword:''
+		}
 	}
 	
 	static navigationOptions = {
@@ -14,11 +18,40 @@ export default class Login extends React.Component {
   
 
 	
-	loginBtn(){
+	LoginNow(){
+		console.log("clicked login");
+		var data = {
+			"username": 'test',
+}
+
+			return fetch('http://www.cpstechnologies.co.za/Tests/slim/api/user/'+this.state.userName+'/'+this.state.userPassword ,{
+
+			method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+			body: JSON.stringify(data),
+			
+		})
+		.then((response) => response.json())
+				.then((responseJson) => {
+					return responseJson;
+					this.props.navigation.navigate('Main');
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+	
+
+	
 	}
+
 	
   render() {
-	  const { navigate } = this.props.navigation;
+		const { navigate } = this.props.navigation;
+		
+		
 	  
     return (
 	<View style={styles.container}>
@@ -40,6 +73,7 @@ export default class Login extends React.Component {
 					selectionColor="#fff"
 					keyboardType="email-address"
 					placeholderTextColor="#ffffff"
+					onChangeText={userName=> this.setState({userName})}
 					onSubmitEditing={()=> this.password.focus()}
 					/>
 					
@@ -49,10 +83,11 @@ export default class Login extends React.Component {
 					secureTextEntry={true}
 					placeholderTextColor="#ffffff"
 					selectionColor="#fff"
+					onChangeText={userPassword=> this.setState({userPassword})}
 					ref={(input)=> this.password= input}
 					/>
 					
-					<TouchableOpacity style={styles.btn} onPress={() => navigate('Main')}><Text style={styles.btnText}>Login</Text></TouchableOpacity >				  
+					<TouchableOpacity style={styles.btn} onPress={this.LoginNow.bind(this)}><Text style={styles.btnText}>Login</Text></TouchableOpacity >				  
 		</View>
 		<View style={styles.signupTextCont}>
 						<Text style={styles.signupText}>Don't have an account yet?</Text>

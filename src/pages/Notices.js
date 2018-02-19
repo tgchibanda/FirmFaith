@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ActivityIndicator, ListView, Text, View, StyleSheet, Dimensions,
     Image, TouchableOpacity} from 'react-native';
 
-export default class Albums extends Component {
+export default class Notices extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,10 +10,9 @@ export default class Albums extends Component {
     }
   }
 
-
   componentDidMount() {
-    return fetch('http://www.cpstechnologies.co.za/Tests/slim/api/albums')
-    //return fetch('http://10.1.2.169/takunda/android/slim/api/albums')
+    return fetch('http://www.cpstechnologies.co.za/Tests/slim/api/notices')
+    //return fetch('http://10.1.2.169/takunda/android/slim/api/notices')
       .then((response) => response.json())
       .then((responseJson) => {
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -50,16 +49,14 @@ export default class Albums extends Component {
             <View style={styles.albumListItems}>
 				<Image
           source={{uri: 'http://www.cpstechnologies.co.za/Tests/data/img/'+rowData.imageUrl}}
-          //source={{uri: 'http://10.1.2.169/takunda/android/firmfaith/src/data/img/'+rowData.imageUrl}}
-					style={{width:100, height:100, margin: 5,}}></Image>
+          //source={{uri: 'http://10.1.2.169/takunda/android/firmfaith/src/data/img/'+rowData.featured_image}}
+					style={{width:Dimensions.get('window').width, margin: 5,}}></Image>
 				<View style={{flex:1, flexDirection:'column',}}>
-					<Text style={styles.albumListItem}>{rowData.name}</Text>
-					<Text style={styles.albumDetail}>{rowData.year}</Text>
-					<Text style={styles.albumDetail}>{rowData.tracks}</Text>
-					<Text style={styles.albumDetail}>{rowData.description}</Text>
-					<Text style={styles.albumDetail}>Launched at: {rowData.launched}</Text>
+					<Text style={styles.albumListItem}>{rowData.date}</Text>
+					<Text style={styles.albumDetail}>{rowData.title}</Text>
+					<Text style={styles.albumDetail}>{rowData.details}</Text>
 					<View style={{alignItems: 'flex-end',}}>
-					<TouchableOpacity onPress={() => navigate('SingleAlbum', { name: rowData.name })}><Text>View</Text></TouchableOpacity >
+					<TouchableOpacity onPress={() => navigate('NoticeComments', { name: rowData.name })}><Text>Comment</Text></TouchableOpacity >
 					</View>
 				</View>
 					
