@@ -10,6 +10,15 @@ export default class Albums extends Component {
     }
   }
 
+  static navigationOptions ={
+		tabBarLabel: 'Albums',
+		tabBarIcon: ({tintColor}) => (
+			<Image
+				source={require('../images/albums.png')}
+				style={{width:22, height: 22, tintColor: '#15514f'}}>
+				</Image>
+		)
+  }
 
   componentDidMount() {
     return fetch('http://www.cpstechnologies.co.za/Tests/slim/api/albums')

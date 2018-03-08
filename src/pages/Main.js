@@ -9,7 +9,17 @@ StyleSheet,
 Dimensions } from 'react-native';
 import Members from './Members';
 export default class Main extends React.Component {
-	
+
+
+	static navigationOptions ={
+		tabBarLabel: 'Home',
+		tabBarIcon: ({tintColor}) => (
+			<Image
+				source={require('../images/home.png')}
+				style={{width:22, height: 22, tintColor: '#15514f'}}>
+				</Image>
+		)
+	}
 	
   render() {
 	  let screenWidth = Dimensions.get('window').width;

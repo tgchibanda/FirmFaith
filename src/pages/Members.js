@@ -10,6 +10,17 @@ export default class Members extends Component {
     }
   }
 
+  static navigationOptions ={
+		tabBarLabel: 'Members',
+		tabBarIcon: ({tintColor}) => (
+			<Image
+				source={require('../images/members.png')}
+				style={{width:22, height: 22, tintColor: '#15514f'}}>
+				</Image>
+		)
+  }
+  
+
   componentDidMount() {
     
     return fetch('http://www.cpstechnologies.co.za/Tests/slim/api/members')

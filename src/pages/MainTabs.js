@@ -16,10 +16,11 @@ import Members from './Members';
 import AlbumBase from './AlbumBase';
 import ViewAlbum from './ViewAlbum';
 import NoticesHome from './NoticesHome';
+import HomeBase from './HomeBase';
 
 
 const Tabs = TabNavigator({
-  MainTabsHome: {
+  Home: {
     screen: Main,
     navigationOptions: {
       headerTitle: 'About Firm Faith Music',
@@ -45,8 +46,30 @@ const Tabs = TabNavigator({
       headerTitle: 'Notice Board',
       header: null,
     },
+  },HomeBase: {
+    screen: HomeBase,
+    navigationOptions: {
+      headerTitle: 'Settings',
+      header: null,
+    },
   },
-});
+  
+
+},
+
+{
+  tabBarPosition: 'bottom',
+  swipeEnabled: true,
+  tabBarOptions:{
+    activeTintColor: '#15514f',
+    lableStyle:{
+      fontSize: 29,
+      padding: 10
+    }
+  }
+}
+
+);
 
 
 export default Tabs;

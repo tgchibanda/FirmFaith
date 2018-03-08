@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-02-19 13:16:30
+Date: 2018-03-08 10:28:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,13 +34,13 @@ CREATE TABLE `albums` (
 -- ----------------------------
 -- Records of albums
 -- ----------------------------
-INSERT INTO `albums` VALUES ('1', 'Mariyah', '10 tracks', 'This was the first album', 'Published April 2010', 'mariya.jpg', 'Glad Tiddings Hall', '1');
-INSERT INTO `albums` VALUES ('2', 'Chikrist MuAfrica', '11 tracks', 'This was the second album', 'Published April 2010', 'chikristu.jpg', 'Meikles Hotel', '2');
-INSERT INTO `albums` VALUES ('3', 'Munenyasha', '8 tracks', 'This was the third album', 'Published April 2010', 'munenyasha.jpg', 'Meikles Hotel', '3');
-INSERT INTO `albums` VALUES ('4', 'Tinevimbo', '6 tracks', 'This was the fourth album', 'Published April 2010', 'tinevimbo.jpg', 'Sterkinekor', '4');
-INSERT INTO `albums` VALUES ('5', 'Whispering Hope', '13 tracks', 'This was the fifth album', 'Published April 2010', 'whispering_hope.jpg', 'Crowne Plaza Hotel', '5');
-INSERT INTO `albums` VALUES ('6', 'Muumbiwehari', '11 tracks', 'This was the last album', 'Published April 2010', 'muumbi.jpg', 'Sterkinekor', '6');
-INSERT INTO `albums` VALUES ('7', 'Wanyanya', '1 track', 'Topped the charts on power fm.', 'Published April 2010', 'wanyanya.jpg', 'Single', '7');
+INSERT INTO `albums` VALUES ('1', 'Mariyah', '10 tracks', 'This was the first album', 'Published April 2010', '1mariya.jpg', 'Glad Tiddings Hall', '1');
+INSERT INTO `albums` VALUES ('2', 'Chikrist MuAfrica', '11 tracks', 'This was the second album', 'Published April 2010', '1chikristu.jpg', 'Meikles Hotel', '2');
+INSERT INTO `albums` VALUES ('3', 'Munenyasha', '8 tracks', 'This was the third album', 'Published April 2010', '1munenyasha.jpg', 'Meikles Hotel', '3');
+INSERT INTO `albums` VALUES ('4', 'Tinevimbo', '6 tracks', 'This was the fourth album', 'Published April 2010', '1tinevimbo.jpg', 'Sterkinekor', '4');
+INSERT INTO `albums` VALUES ('5', 'Whispering Hope', '13 tracks', 'This was the fifth album', 'Published April 2010', '1whispering_hope.jpg', 'Crowne Plaza Hotel', '5');
+INSERT INTO `albums` VALUES ('6', 'Muumbiwehari', '11 tracks', 'This was the last album', 'Published April 2010', '1muumbi.jpg', 'Sterkinekor', '6');
+INSERT INTO `albums` VALUES ('7', 'Wanyanya', '1 track', 'Topped the charts on power fm.', 'Published April 2010', '1wanyanya.jpg', 'Single', '7');
 
 -- ----------------------------
 -- Table structure for `members`

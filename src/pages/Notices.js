@@ -10,6 +10,17 @@ export default class Notices extends Component {
     }
   }
 
+  static navigationOptions ={
+		tabBarLabel: 'Notices',
+		tabBarIcon: ({tintColor}) => (
+			<Image
+				source={require('../images/notices.png')}
+				style={{width:22, height: 22, tintColor: '#15514f'}}>
+				</Image>
+		)
+  }
+
+
   componentDidMount() {
     return fetch('http://www.cpstechnologies.co.za/Tests/slim/api/notices')
     //return fetch('http://10.1.2.169/takunda/android/slim/api/notices')

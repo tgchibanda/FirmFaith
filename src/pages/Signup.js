@@ -41,7 +41,10 @@ export default class Signup extends React.Component {
 					"Response Body -> " + JSON.stringify(responseData.body)
 				);
 				if(responseData=="Registered Successfully"){
-					navigate('Home');
+					this.props.navigation.navigate('Home');
+				}
+				else{
+					this.props.navigation.navigate('Signup');
 				}
 			})
 			.done();
