@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, TouchableOpacity, TextInput, Image, ScrollView, Keyboard } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, View, StatusBar, TouchableOpacity, TextInput, Image, ScrollView, Keyboard } from 'react-native';
 import Logo from '../components/Logo';
 import {Actions} from 'react-native-router-flux';
 import { StackNavigator } from 'react-navigation';
@@ -36,15 +36,17 @@ export default class Login extends React.Component {
 		})
 		.then((response) => response.json())
 			.then((responseData, err) => {
-				//alert(
-				//	responseData,
-				//	"Response Body -> " + JSON.stringify(responseData.body)
-				//);
-				if(responseData=="Login Ok"){
+				
+				if(responseData!="Login Failed"){
+					AsyncStorage.setItem('isLoggedIn', 'true');
+					AsyncStorage.setItem('user', JSON.stringify(responseData));
 					this.props.navigation.navigate('Main');
 				}
 				else{
-					//this.props.navigation.navigate('Home');
+					alert(
+						responseData,
+						"Response Body -> " + JSON.stringify(responseData.body)
+				);
 				}
 			})
 			.done();
