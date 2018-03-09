@@ -13,7 +13,8 @@ export default class Login extends React.Component {
 	}
 	
 	static navigationOptions = {
-    title: 'Login',
+		title: 'Login',
+		headerLeft: null,
   };
   
 
@@ -92,7 +93,7 @@ export default class Login extends React.Component {
 					ref={(input)=> this.password= input}
 					/>
 					
-					<TouchableOpacity style={styles.btn} onPress={Keyboard.dismiss} onPress={() => this.LoginNow()}><Text style={styles.btnText}>Login</Text></TouchableOpacity >				  
+					<TouchableOpacity style={styles.btn} onPress={Keyboard.dismiss} onPress={() => this.LoginNow()}><Text style={styles.btnText}>Login</Text></TouchableOpacity>				  
 		</View>
 		<View style={styles.signupTextCont}>
 						<Text style={styles.signupText}>Don't have an account yet?</Text>

@@ -50,7 +50,7 @@ const Tabs = TabNavigator({
     screen: HomeBase,
     navigationOptions: {
       headerTitle: 'Settings',
-      header: null,
+      headerLeft: null,
     },
   },
   
@@ -59,7 +59,7 @@ const Tabs = TabNavigator({
 
 {
   tabBarPosition: 'bottom',
-  swipeEnabled: true,
+  swipeEnabled: false,
   tabBarOptions:{
     activeTintColor: '#15514f',
     lableStyle:{

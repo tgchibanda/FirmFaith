@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2018-03-08 10:28:17
+Date: 2018-03-09 12:52:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -91,13 +91,15 @@ CREATE TABLE `users` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `contact` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT '--',
+  `country` varchar(255) DEFAULT '--',
   `password` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT 'placeholder.png',
+  `city` varchar(255) DEFAULT '--',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'Takunda', '0712563214', 'tgchibanda@gmail.com', 'Zimbabwe', 'password');
+INSERT INTO `users` VALUES ('1', 'Takunda', '0712563214', 'tgchibanda@gmail.com', 'Zimbabwe', 'password', 'takunda.jpg', '--');

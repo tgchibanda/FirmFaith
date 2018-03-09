@@ -98,6 +98,10 @@ $app->get('/api/user/{contact}/{password}', function(Request $request, Response 
 	 $id = $data['id'];
 	 $name = $data['name'];
 	 $contact = $data['contact'];
+	 $email = $data['email'];
+	 $city = $data['city'];
+	 $country = $data['country'];
+	 $image = $data['image'];
 	 $password = $data['password'];
 
 	 try{
@@ -112,7 +116,8 @@ $app->get('/api/user/{contact}/{password}', function(Request $request, Response 
 
 		 if(count($user)==1){
 			return $response->withJSON(
-				['id' => $id, 'name' => $name, 'contact' => $contact, 'password' => $password],
+				['id' => $id, 'name' => $name, 'contact' => $contact, 'password' => $password, 
+				'city' => $city, 'country' => $country, 'email'=> $email, 'image' => $image],
 				200,
 				JSON_UNESCAPED_UNICODE
 			);

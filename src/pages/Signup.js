@@ -54,7 +54,10 @@ export default class Signup extends React.Component {
 
     
 		static navigationOptions = {
-				title: 'Create Account'
+				title: 'Create Account',
+			
+					headerLeft: null,
+			
   };
 	
 	
@@ -87,6 +90,7 @@ export default class Signup extends React.Component {
 		underlineColorIos='#fff' 
 		placeholder='Your contact number'
 		selectionColor="#fff"
+		keyboardType="numeric"
 		placeholderTextColor="#ffffff"
 		onChangeText={userContact=> this.setState({userContact})}
 		/>
